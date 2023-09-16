@@ -1,0 +1,29 @@
+﻿<Window x:Class="Sudoku.WindowSaveInformationUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="WindowSaveInformationUser" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        WindowState="Normal" WindowStyle="None" Height="450" Width="800">
+    <Grid Background="#FF454545">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label Content="Введите свой псевдоним (максимум 30 символов):" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="28" FontFamily="Sitka Text" FontStyle="Italic" Foreground="#FFE9E9E9"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBox x:Name="Text_Box_Input"  Text="" Background="Black" Margin="50,30,50,30" MaxLength="30" FontSize="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="5,5,5,5" BorderBrush="#FFB8C1DD" Foreground="White"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button Content="Отправить" MaxWidth="200" MaxHeight="80" FontSize="22" FontFamily="Sitka Text" FontStyle="Italic" Click="Button_Click"/>
+        </Grid>
+    </Grid>
+</Window>

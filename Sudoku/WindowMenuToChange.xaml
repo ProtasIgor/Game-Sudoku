@@ -1,0 +1,33 @@
+﻿<Window x:Class="Sudoku.WindowMenuToChange"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="WindowMenuToChange" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowState="Normal" Height="450" Width="800">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label Content="Вы уверены что хотите выйти, весь прогресс будет утерян!" FontSize="29" FontFamily="Sitka Display" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button Content="Отмена" Click="Button_Click_Back" BorderThickness="5,5,5,5" FontSize="36" FontFamily="Leelawadee UI" Margin="40,10,40,70" BorderBrush="#FF363636" Background="#FFC27979" Foreground="#FF4436D9"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Content="Выйти" Click="Button_Click_StartWindow" BorderThickness="5,5,5,5" FontSize="36" FontFamily="Leelawadee UI" Margin="40,10,40,70" BorderBrush="#FF363636" Background="#FFE53E3E" Foreground="#FF928EE9"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,141 @@
+﻿<Window x:Class="Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="Sudoky" ResizeMode="CanMinimize" WindowState="Maximized" Height="1040" Width="1900" MinHeight="600" MinWidth="1080">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            
+            <Setter Property="MaxLength" Value="1"/>
+            <Setter Property="MinHeight" Value="40 px"/>
+            <Setter Property="MinWidth" Value="40 px"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="4,4,4,4" />
+        </Style>
+    </Window.Resources>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="450 px" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="20,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="Смена фона" FontSize="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Gadugi"/>
+                </Grid>
+                
+                <Grid Grid.Row="1" Margin="0,20,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Button x:Name="BackgroundGreen" Background="#FF3FD142" Margin="10,0,10,0" Click="Button_Click_ChooseGreen"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Button x:Name="BackgroundOrange" Background="#FFFF8A13" Margin="10,0,10,0" Click="Button_Click_ChooseOrange"/>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Button x:Name="BackgroundBlue" Background="#FF3A3C93" Margin="10,0,10,0" Click="Button_Click_ChooseBlue"/>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <Button x:Name="BackgroundDefault" Background="#FF626262" Margin="10,0,10,0" Click="Button_Click_ChooseDefault" BorderBrush="#FF626262" Foreground="#FFA79999"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <TextBox x:Name="Text_box_helpValue" Text="123" Background="#FF656464" Margin="10,10,10,10" IsReadOnly="True" Focusable="False" FontSize="20"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Button Content="+" Background="#FF656464" Click="Button_Click_GetHelpValue" BorderThickness="3,3,3,3" FontSize="36" BorderBrush="Black" Foreground="Red" HorizontalAlignment="Center" Padding="7,2,7,2" VerticalAlignment="Center" FontFamily="Cascadia Code Light"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Button Content="Выйти" FontSize="28" FontFamily="Segoe UI Symbol" MaxWidth="295" MaxHeight="80" Margin="20,0,20,0" BorderBrush="Black" Background="#FFBA805B" Foreground="#FFF3F3F3" MinWidth="180" MinHeight="50" FontWeight="Light" Opacity="0.95" BorderThickness="2,2,2,2" Click="Button_Click_BackToMenu"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Column="1" x:Name="MainGrid" Height="450 px"/>
+        
+        <Grid Grid.Column="2" Margin="20,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="Таймер" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="36" FontFamily="Old English Text MT" Foreground="#FF1D1C5B"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Label x:Name="Text_Timer" Background="#FFB3C4D9" Margin="10,0,10,0" BorderThickness="5,5,5,5"  Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Content="" FontFamily="Verdana" Foreground="#FF40628A" /><!--IsReadOnly="True"-->
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Button Content="Пауза" Background="#FFB3C4D9" Margin="10,10,10,10" BorderBrush="#FF3E57CF" BorderThickness="5,5,5,5" FontSize="30" Click="Button_Click_ToStopTimer"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Button x:Name="con" Content="Продолжить" Background="#FFB3C4D9" Margin="10,10,10,10" FontSize="30" BorderBrush="#FF3E57CF" BorderThickness="5,5,5,5" Click="Button_Click_ToContinueTimer"/>
+                    </Grid>
+                </Grid>
+                    
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Button Content="Проверка" FontSize="28" FontFamily="Segoe UI Symbol" MaxWidth="295" MaxHeight="80" Margin="20,0,20,0" Click="Button_Click" BorderBrush="Black" Background="#FFBA805B" Foreground="#FFF3F3F3" MinWidth="180" MinHeight="50" FontWeight="Light" Opacity="0.95" BorderThickness="2,2,2,2"/>
+            </Grid>
+            
+        </Grid>
+
+    </Grid>
+
+</Window>
